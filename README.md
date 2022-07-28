@@ -11,30 +11,18 @@
 
 ### To install and run:
 
-#### [Arch Linux](https://aur.archlinux.org/packages/nerdfetch/):
+#### Install with package manager:
 
-```sh
-yay -S nerdfetch
-nerdfetch
-```
-
-Make sure to replace `yay` with whatever AUR helper you use. 
-
-#### [yiffOS](https://git.yiffos.gay/Packaging/packages/src/branch/main/nerdfetch):
-
-```sh
-bulge install nerdfetch
-nerdfetch
-```
+unfortunately i didnt upload to package manager :sad:, i need maintainer for maintain it
 
 #### Manually:
 
 Copy-paste this into your terminal:
 
 ```sh
-sudo curl -fsSL https://raw.githubusercontent.com/ThatOneCalculator/NerdFetch/master/nerdfetch -o /usr/bin/nerdfetch
-sudo chmod +x /usr/bin/nerdfetch
-nerdfetch
+sudo curl -fsSL https://raw.githubusercontent.com/WilloIzCitron/MinNerdFetch/master/minnerdfetch -o /usr/bin/minnerdfetch
+sudo chmod +x /usr/bin/minnerdfetch
+minnerdfetch
 ```
 
 #### Android with Termux:
@@ -42,7 +30,7 @@ nerdfetch
 Copy-paste this into Termux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ThatOneCalculator/NerdFetch/master/nerdfetch -o /data/data/com.termux/files/usr/bin/nerdfetch
+curl -fsSL https://raw.githubusercontent.com/WilloIzCitron/MinNerdFetch/master/nerdfetch -o /data/data/com.termux/files/usr/bin/nerdfetch
 chmod a+x /data/data/com.termux/files/usr/bin/nerdfetch
 nerdfetch
 ```
@@ -51,14 +39,18 @@ nerdfetch
 
 Note that this will ***not*** install the program.
 ```sh
-curl -fsSL https://raw.githubusercontent.com/ThatOneCalculator/NerdFetch/master/nerdfetch | sh
+curl -fsSL https://raw.githubusercontent.com/WilloIzCitron/MinNerdFetch/master/minnerdfetch | sh
 ```
 
 ### Features:
 - Strong cross-OS compatability
 - Not bloated
+- Minimal
 - Portable
 - POSIX
+
+### TO DO:
+- [ ] complete nerd font os icon
 
 ### OSes supported:
 - Debian based Linux
