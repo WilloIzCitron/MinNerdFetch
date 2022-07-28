@@ -1,4 +1,4 @@
-# NerdFetch
+# MinNerdFetch (Minimal NerdFetch)
  A Minimal POSIX \*nix (Linux, macOS, Android, \*BSD, etc) fetch script using Nerdfonts
 
 <!-- ![Screenshot](https://i.imgur.com/and9kuQ.png) -->
