@@ -30,9 +30,9 @@ minnerdfetch
 Copy-paste this into Termux:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/WilloIzCitron/MinNerdFetch/master/nerdfetch -o /data/data/com.termux/files/usr/bin/nerdfetch
-chmod a+x /data/data/com.termux/files/usr/bin/nerdfetch
-nerdfetch
+curl -fsSL https://raw.githubusercontent.com/WilloIzCitron/MinNerdFetch/master/minnerdfetch -o /data/data/com.termux/files/usr/bin/minnerdfetch
+chmod a+x /data/data/com.termux/files/usr/bin/minnerdfetch
+minnerdfetch
 ```
 
 #### Run once:
