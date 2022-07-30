@@ -13,7 +13,7 @@ case $ostype in
 	"Linux"*)
 		if [ $linuxtype = android ]; then
 			host="$(hostname)"
-			android_version= "$(getprop ro.build.version.release)"
+			android_version= $(getprop ro.build.version.release)
 			case $android_version in
 				1.5.*) codename="Cupcake" ;;
 				1.6.*) codename="Donut" ;;
