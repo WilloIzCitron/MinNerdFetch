@@ -32,7 +32,7 @@ case $ostype in
 				*) ""
 			esac
 			USER=${USER:-$(id -un || printf %s "${HOME/*\/}")}
-			os="Android $(android_version) $(codename)"
+			os="Android ${android_version} ${codename}"
 		else
 			host="$(cat /proc/sys/kernel/hostname)"
 			. /etc/os-release
