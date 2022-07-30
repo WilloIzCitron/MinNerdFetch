@@ -13,8 +13,26 @@ case $ostype in
 	"Linux"*)
 		if [ $linuxtype = android ]; then
 			host="$(hostname)"
+			android_version= "${getprop ro.build.version.release}"
+			case $android_version in
+				1.5.*) codename="Cupcake" ;;
+				1.6.*) codename="Donut" ;;
+				2.0.* | 2.1.*) codename="Eclair" ;;
+				2.2.*) codename="Froyo" ;;
+				2.3.*) codename="Gingerbread" ;;
+				3.*) codename="Honeycomb" ;;
+				4.*) codename="Ice Cream Sandwich" ;;
+				4.1.* | 4.2.* | 4.3.*) codename="Jellybean" ;;
+				4.4.*) codename="KitKat" ;;
+				5.*) codename="Lolipop" ;;
+				6.*) codename="Marshmallow" ;;
+				7.*) codename="Nougat" ;;
+				8.*) codename="Oreo"  ;;
+				9.*) codename="Pie"  ;;
+				*) ""
+			esac
 			USER=${USER:-$(id -un || printf %s "${HOME/*\/}")}
-			os="Android $(getprop ro.build.version.release)"
+			os="Android $(android_version) $(codename)"
 		else
 			host="$(cat /proc/sys/kernel/hostname)"
 			. /etc/os-release
@@ -34,7 +52,26 @@ case $ostype in
 					break;;
 			esac
 		done < /System/Library/CoreServices/SystemVersion.plist
-		os="macOS ${mac_version}";;
+		case $mac_version in
+                10.4*)  codename="Mac OS X Tiger" ;;
+                10.5*)  codename="Mac OS X Leopard" ;;
+                10.6*)  codename="Mac OS X Snow Leopard" ;;
+                10.7*)  codename="Mac OS X Lion" ;;
+                10.8*)  codename="OS X Mountain Lion" ;;
+                10.9*)  codename="OS X Mavericks" ;;
+                10.10*) codename="OS X Yosemite" ;;
+                10.11*) codename="OS X El Capitan" ;;
+                10.12*) codename="macOS Sierra" ;;
+                10.13*) codename="macOS High Sierra" ;;
+                10.14*) codename="macOS Mojave" ;;
+                10.15*) codename="macOS Catalina" ;;
+                10.16*) codename="macOS Big Sur" ;;
+                11.*)  codename="macOS Big Sur" ;;
+                12.*)  codename="macOS Monterey" ;;
+                13.*)  codename="macOS Ventura" ;;
+                *)      codename=macOS ;;
+		esac
+		os=" ${codename} ${mac_version}";;
 	*)
 		os="Idk"
 		host="host"
@@ -49,13 +86,18 @@ elif [ $host = arch ]; then
 	icon=" "
 elif [ $host = manjaro ]; then
 	icon=" "
+elif [ $host = android ]; then
+	icon=" "
 else
-	icon=" "
+	icon=""
 fi
+
+## DE DETECTION
+de_type=
 
 ## PACKAGE MANAGER AND PACKAGES DETECTION
 
-manager=$(which nix-env pkg yum zypper dnf rpm apt brew port pacman xbps-query emerge cave apk kiss pmm /usr/sbin/slackpkg bulge yay paru pacstall cpm pmm eopkg 2>/dev/null)
+manager=$(which nix-env pkg yum zypper dnf rpm apt brew port pacman xbps-query emerge cave apk kiss pmm /usr/sbin/slackpkg bulge yay paru pacstall cpm pmm eopkg wmctrl 2>/dev/null)
 manager=${manager##*/}
 case $manager in
 	cpm) packages="$(cpm C)";;
@@ -181,6 +223,8 @@ c1="${reset}${white}"           # second color
 c2="${reset}${yellow}"          # third color
 
 ## OUTPUT
+
+
 
 cat <<EOF
 
