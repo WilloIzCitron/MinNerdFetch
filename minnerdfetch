@@ -40,6 +40,22 @@ case $ostype in
 				os="$(brl version)"
 			else
 				os="${PRETTY_NAME}"
+			#icons for specific os, need expansion
+				osid="${ID}"
+				if [ $osid = debian ]; then
+					icon=" "
+				elif [ $osid = alpine ]; then
+					icon=" "
+				elif [ $osid = arch ]; then
+					icon=" "
+				elif [ $osid = manjaro ]; then
+					icon=" "
+				elif [ $osid = android ]; then
+					icon=" "
+				else
+					icon=""
+				fi
+
 			fi
 		fi
 		shell=${SHELL##*/};;
@@ -77,20 +93,6 @@ case $ostype in
 		host="host"
 esac
 
-#icons for specific os, need expansion
-if [ $os = debian ]; then
-	icon=" "
-elif [ $os = alpine ]; then
-	icon=" "
-elif [ $os = arch ]; then
-	icon=" "
-elif [ $os = manjaro ]; then
-	icon=" "
-elif [ $os = android ]; then
-	icon=" "
-else
-	icon=""
-fi
 
 ## DE DETECTION
 de_type=
