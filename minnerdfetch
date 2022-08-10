@@ -78,15 +78,15 @@ case $ostype in
 esac
 
 #icons for specific os, need expansion
-if [ $host = debian ]; then
+if [ $linuxtype = debian ]; then
 	icon=" "
-elif [ $host = alpine ]; then
+elif [ $linuxtype = alpine ]; then
 	icon=" "
-elif [ $host = arch ]; then
+elif [ $linuxtype = arch ]; then
 	icon=" "
-elif [ $host = manjaro ]; then
+elif [ $linuxtype = manjaro ]; then
 	icon=" "
-elif [ $host = android ]; then
+elif [ $linuxtype = android ]; then
 	icon=" "
 else
 	icon=""
